@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Local Storage`</title>
     <style>
-         .user-container{
+        .user-container {
             height: 150px;
             width: 250px;
             display: block;
@@ -16,54 +17,91 @@
             border-color: #99e6ff;
             text-align: center;
             box-shadow: 15px 10px 25px 5px #807f7f;
-         }
+        }
 
-         .user-name{
-            height: 50px; 
+        .user-name {
+            height: 50px;
             display: block;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 20PX; 
+            margin-top: 20PX;
             font-size: 15PX;
             border-color: #99e6ff;
-         }
+        }
 
-         .btn{
+        .btn {
             height: 30px;
             display: block;
             margin-left: auto;
             margin-right: auto;
             border-color: #99e6ff;
             border-radius: 5px;
-         }
-         
-         h1{
+        }
+
+        h1 {
             text-align: center;
-         }
+        }
 
-         .btn-2{
+        .btn-2 {
             height: 30px;
             display: block;
             margin-left: auto;
             margin-right: auto;
             border-color: #99e6ff;
             border-radius: 5px;
-         }
+        }
+
+        .user-btn {
+            display: flex;
+            justify-content: space-evenly;
+        }
     </style>
 </head>
+
 <body>
-    <div class="user-container">
+    <div class="user-container" id="user-container">
         <input type="text" placeholder="Enter Your Name" class="user-name" id="user-name"> <br>
-        <button type="button" class="btn" id="btn" onclick="login()">
-            Login
-        </button>
+        <div class="user-btn">
+            <button type="button" class="btn" id="btn" onclick="login()">
+                Login
+            </button>
+        </div>
     </div>
-    <h1>
+    <h1 id="greet">
         Hello User..!!
     </h1>
 
     <button type="button" class="btn-2" id="btn-2" onclick="logout()">
         Logout
     </button>
+
+
+    <script>
+        function login() {
+            const username = document.getElementById('user-name');
+            const name = username.value;
+            
+            localStorage.setItem('user-name', name);
+            if (!name) {
+                alert("Please enter your name")
+                return;
+
+            }
+            const greet = document.getElementById('greet');
+
+            if (name) {
+                greet.innerText = `Hello ${name} ..!!`
+                username.style.display = 'none';
+                btn.style.display = 'none';
+                document.getElementById('user-container').style.display = 'none';
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('user-name');
+            window.location.reload();
+        }
+    </script>
 </body>
+
 </html>
