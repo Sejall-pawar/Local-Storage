@@ -40,17 +40,30 @@
          h1{
             text-align: center;
          }
+
+         .btn-2{
+            height: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border-color: #99e6ff;
+            border-radius: 5px;
+         }
     </style>
 </head>
 <body>
     <div class="user-container">
         <input type="text" placeholder="Enter Your Name" class="user-name" id="user-name"> <br>
-        <button type="button" class="btn" id="btn">
+        <button type="button" class="btn" id="btn" onclick="login()">
             Login
         </button>
     </div>
     <h1>
         Hello User..!!
     </h1>
+
+    <button type="button" class="btn-2" id="btn-2" onclick="logout()">
+        Logout
+    </button>
 </body>
 </html>
